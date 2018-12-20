@@ -4,7 +4,7 @@ pipeline:
     commands:
       - npm install
       - npm test
-      - echo $${TEST_SECRET}
+      - echo ${TEST_SECRET}
     secrets: [ test_secret ]
   publish:
     image: plugins/docker
