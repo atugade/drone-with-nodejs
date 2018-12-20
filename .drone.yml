@@ -8,7 +8,7 @@ steps:
     USERNAME:
       from_secret: username
   commands:
-  - echo "TESTING"
+  - echo ${USERNAME}
 
 ---
 kind: secret
