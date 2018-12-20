@@ -7,6 +7,8 @@ steps:
   environment:
     USERNAME:
       from_secret: username
+  commands:
+  - echo "TESTING"
 
 ---
 kind: secret
