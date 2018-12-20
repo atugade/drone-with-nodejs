@@ -9,3 +9,8 @@ pipeline:
     repo: drone/node-demo
     secrets: [ docker_username, docker_password ]
     dry_run: true # remove this to publish
+    
+secrets:
+  test_secret:
+    external:
+      name: secret/my-secret#my-value
