@@ -1,11 +1,20 @@
-pipeline:
-  build:
-    image: node
-    commands:
-      - npm install
-      - npm test
-  publish:
-    image: plugins/docker
-    repo: drone/node-demo
-    secrets: [ docker_username, docker_password ]
-    dry_run: true # remove this to publish
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: alpine
+  environment:
+    USERNAME:
+      from_secret: username
+  commands:
+  - echo "hi there"
+  - echo ${USERNAME}
+
+---
+kind: secret
+
+external_data:
+  username:
+    path: secret/my-secret
+    name: my-value
